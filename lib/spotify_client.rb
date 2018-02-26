@@ -127,10 +127,12 @@ module Spotify
       replace_user_tracks_in_playlist(user_id, playlist_id, [])
     end
 
-    def album(album_id, type_resqust = 'get')
-      run(:type_resqust, "/v1/albums/#{album_id}", [200])
+    def album(album_id)
+      run(:get, "/v1/albums/#{album_id}", [200])
     end
-
+		def save_album(album_id)
+			run(:put, "/v1/me/albums?ids#{album_id}", [200])
+		end
     def album_tracks(album_id)
       run(:get, "/v1/albums/#{album_id}/tracks", [200])
     end
