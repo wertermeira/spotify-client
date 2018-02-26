@@ -131,7 +131,7 @@ module Spotify
       run(:get, "/v1/albums/#{album_id}", [200])
     end
 		def save_album(album_id)
-			run(:put, "/v1/me/albums?ids#{album_id}", [200])
+			run(:put, "/v1/me/albums?ids=#{album_id}", [200])
 		end
     def album_tracks(album_id)
       run(:get, "/v1/albums/#{album_id}/tracks", [200])
